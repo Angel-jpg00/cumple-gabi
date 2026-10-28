@@ -1,0 +1,2079 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue-dark: #06152e;
+    --blue-deep: #0a2463;
+    --blue-main: #1976ff;
+    --blue-light: #67b7ff;
+    --blue-glow: #58a6ff;
+
+    --text-main: #ffffff;
+    --text-soft: #c7dcff;
+
+    --glass: rgba(10, 36, 99, 0.35);
+    --border: rgba(255, 255, 255, 0.16);
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--blue-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+/* =========================
+   FONDO
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(25, 118, 255, 0.30),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(88, 166, 255, 0.22),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            var(--blue-dark),
+            var(--blue-deep)
+        );
+}
+
+
+/* =========================
+   PARTÍCULAS
+========================= */
+
+.particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.particles span {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+
+    box-shadow: 0 0 15px var(--blue-glow);
+
+    animation: float 8s infinite ease-in-out;
+}
+
+.particles span:nth-child(1) {
+    left: 10%;
+    top: 20%;
+}
+
+.particles span:nth-child(2) {
+    left: 80%;
+    top: 15%;
+    animation-delay: 1s;
+}
+
+.particles span:nth-child(3) {
+    left: 70%;
+    top: 80%;
+    animation-delay: 2s;
+}
+
+.particles span:nth-child(4) {
+    left: 20%;
+    top: 75%;
+    animation-delay: 3s;
+}
+
+.particles span:nth-child(5) {
+    left: 50%;
+    top: 10%;
+    animation-delay: 1.5s;
+}
+
+.particles span:nth-child(6) {
+    left: 90%;
+    top: 50%;
+    animation-delay: 2.5s;
+}
+
+.particles span:nth-child(7) {
+    left: 5%;
+    top: 55%;
+    animation-delay: 0.5s;
+}
+
+.particles span:nth-child(8) {
+    left: 45%;
+    top: 90%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-25px);
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   PANTALLAS
+========================= */
+
+.app {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.screen {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(0.97);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0.5s;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* =========================
+   TARJETA
+========================= */
+
+.card {
+    width: 100%;
+    max-width: 480px;
+
+    padding: 42px 35px;
+
+    text-align: center;
+
+    background: var(--glass);
+
+    border: 1px solid var(--border);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.30),
+        0 0 40px rgba(25, 118, 255, 0.12);
+}
+
+
+/* =========================
+   TEXTOS
+========================= */
+
+.eyebrow {
+    margin-bottom: 15px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: var(--blue-light);
+}
+
+h1 {
+    font-family: "Outfit", sans-serif;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+.description {
+    margin-bottom: 28px;
+
+    color: var(--text-soft);
+
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   ICONOS
+========================= */
+
+.lock,
+.verify-icon {
+    font-size: 3.4rem;
+
+    margin-bottom: 20px;
+
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+input {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 14px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+
+    transition: 0.25s ease;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.50);
+}
+
+input:focus {
+    border-color: var(--blue-main);
+
+    box-shadow: 0 0 0 4px rgba(25, 118, 255, 0.15);
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+button {
+    border: none;
+
+    padding: 16px 20px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-main),
+            var(--blue-light)
+        );
+
+    color: white;
+
+    font-family: "Outfit", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 10px 25px rgba(25, 118, 255, 0.30);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(25, 118, 255, 0.45);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   PISTA Y MENSAJES
+========================= */
+
+.hint {
+    margin-top: 20px;
+
+    color: rgba(255, 255, 255, 0.60);
+
+    font-size: 0.85rem;
+}
+
+.message {
+    min-height: 25px;
+
+    margin-top: 15px;
+
+    color: #ffb7b7;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   BARRA DE PROGRESO
+========================= */
+
+.progress-container {
+    width: 100%;
+    height: 12px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    margin-top: 25px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue-main),
+            var(--blue-light)
+        );
+
+    box-shadow:
+        0 0 20px var(--blue-glow);
+
+    transition: width 0.12s linear;
+}
+
+.progress-text {
+    margin-top: 12px;
+
+    color: var(--text-soft);
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   CONFIRMACIÓN
+========================= */
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 20px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(75, 255, 160, 0.15);
+
+    border: 1px solid rgba(75, 255, 160, 0.35);
+
+    color: #75ffb0;
+
+    font-size: 2.5rem;
+
+    animation: successPop 0.7s ease;
+}
+
+@keyframes successPop {
+    0% {
+        transform: scale(0);
+    }
+
+    80% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 480px) {
+
+    .card {
+        padding: 35px 24px;
+        border-radius: 24px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+}
+
+/* =========================
+   INTRODUCCIÓN
+========================= */
+
+.loading-icon {
+    font-size: 3.4rem;
+
+    margin-bottom: 20px;
+
+    animation: rotateLoading 3s linear infinite;
+}
+
+@keyframes rotateLoading {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================
+   BOTÓN OCULTO
+========================= */
+
+.hidden-button {
+    display: none;
+
+    margin-top: 25px;
+
+    animation: buttonAppear 0.5s ease forwards;
+}
+
+.hidden-button.show {
+    display: block;
+}
+
+@keyframes buttonAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================
+   BOTÓN QUE HUYE
+========================= */
+
+.escape-card {
+    max-width: 600px;
+}
+
+.escape-area {
+    position: relative;
+
+    width: 100%;
+    height: 250px;
+
+    margin-top: 20px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+#escapeButton {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    white-space: nowrap;
+
+    transition:
+        left 0.25s ease,
+        top 0.25s ease,
+        transform 0.2s ease;
+}
+
+.escape-area.final-mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.escape-area.final-mode #escapeButton {
+    position: static;
+
+    transform: none;
+}
+
+
+/* =========================
+   SACUDIDA
+========================= */
+
+.shake {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-8px);
+    }
+
+    50% {
+        transform: translateX(8px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+}
+
+/* =========================
+   PRUEBA DE LAS CAJAS
+========================= */
+
+.boxes-card {
+    max-width: 650px;
+}
+
+.boxes-icon {
+    font-size: 3.8rem;
+    margin-bottom: 15px;
+
+    animation: boxFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes boxFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(4deg);
+    }
+
+}
+
+
+/* CONTENEDOR DE CAJAS */
+
+.boxes-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    gap: 22px;
+
+    margin-top: 30px;
+}
+
+
+/* CADA CAJA */
+
+.gift-box {
+    position: relative;
+
+    width: 130px;
+    height: 145px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.3s ease;
+}
+
+.gift-box:hover:not(:disabled) {
+    transform: translateY(-12px) scale(1.05);
+
+    box-shadow: none;
+}
+
+.gift-box:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+
+/* EMOJI DE LA CAJA */
+
+.box-body {
+    font-size: 5.3rem;
+
+    line-height: 1;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.3s ease;
+}
+
+
+/* NÚMERO */
+
+.box-number {
+    position: absolute;
+
+    bottom: 2px;
+
+    width: 28px;
+    height: 28px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    font-size: 0.8rem;
+}
+
+
+/* CAJA ABIERTA */
+
+.gift-box.opened .box-body {
+    transform: scale(1.15) rotate(-8deg);
+}
+
+
+/* CAJA INCORRECTA */
+
+.gift-box.wrong {
+    opacity: 0.55;
+}
+
+.gift-box.wrong .box-body {
+    filter: grayscale(0.8);
+}
+
+
+/* CAJA CORRECTA */
+
+.gift-box.correct .box-body {
+    animation: correctBox 0.7s ease infinite alternate;
+
+    filter:
+        drop-shadow(0 0 12px #58a6ff)
+        drop-shadow(0 0 25px #1976ff);
+}
+
+@keyframes correctBox {
+
+    from {
+        transform: scale(1.05);
+    }
+
+    to {
+        transform: scale(1.22) rotate(5deg);
+    }
+
+}
+
+
+/* MENSAJE DE LAS CAJAS */
+
+.box-message {
+    min-height: 75px;
+
+    margin-top: 25px;
+
+    color: var(--text-soft);
+
+    line-height: 1.6;
+
+    font-size: 1rem;
+}
+
+
+/* BOTÓN FINAL */
+
+#nextBoxButton {
+    width: 100%;
+}
+
+
+/* =========================
+   RESPONSIVE - CAJAS
+========================= */
+
+@media (max-width: 480px) {
+
+    .boxes-container {
+        gap: 8px;
+    }
+
+    .gift-box {
+        width: 90px;
+        height: 115px;
+    }
+
+    .box-body {
+        font-size: 4rem;
+    }
+
+}
+
+/* =========================
+   PANTALLA DE ADVERTENCIA
+========================= */
+
+.warning-card {
+    max-width: 580px;
+}
+
+.warning-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+
+    animation: warningPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes warningPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* LISTA DE ADVERTENCIAS */
+
+.warning-list {
+    margin: 25px 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    text-align: left;
+}
+
+.warning-list p {
+    padding: 13px 16px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: var(--text-soft);
+}
+
+.warning-question {
+    margin: 28px 0 20px;
+
+    font-family: "Outfit", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+
+/* ÁREA DE BOTONES */
+
+.choice-area {
+    position: relative;
+
+    min-height: 70px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+/* BOTÓN NO */
+
+#noButton {
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow: none;
+}
+
+
+/* BOTÓN SÍ */
+
+#yesButton {
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue-main),
+            var(--blue-light)
+        );
+}
+
+
+/* MODO ESCAPE */
+
+.choice-area.no-escape-mode {
+    min-height: 170px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.choice-area.no-escape-mode #yesButton {
+    position: absolute;
+
+    left: 50%;
+    bottom: 15px;
+
+    transform: translateX(-50%);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+
+    .warning-list p {
+        font-size: 0.9rem;
+    }
+
+    .choice-area {
+        gap: 10px;
+    }
+
+    .choice-area button {
+        font-size: 0.85rem;
+        padding: 14px 15px;
+    }
+
+}
+
+/* =========================
+   GRAN REVELACIÓN
+========================= */
+
+.reveal-screen {
+    background: #020817;
+
+    overflow: hidden;
+}
+
+
+/* FONDO DE LA REVELACIÓN */
+
+.reveal-background {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(25, 118, 255, 0.20),
+            transparent 45%
+        );
+
+    opacity: 0;
+
+    transition: opacity 1s ease;
+}
+
+
+/* =========================
+   SUSPENSO
+========================= */
+
+.suspense-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    opacity: 1;
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.suspense-content h1 {
+    font-size: clamp(2.3rem, 7vw, 5rem);
+
+    margin: 0;
+
+    text-shadow:
+        0 0 30px rgba(88, 166, 255, 0.4);
+}
+
+
+/* =========================
+   CONTENIDO DE CUMPLEAÑOS
+========================= */
+
+.birthday-content {
+    position: absolute;
+    inset: 0;
+
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(0.8);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+}
+
+.reveal-screen.celebration-active .birthday-content {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+.reveal-screen.celebration-active .reveal-background {
+    opacity: 1;
+}
+
+
+/* ICONOS */
+
+.celebration-icons {
+    display: flex;
+
+    gap: 18px;
+
+    font-size: 2.4rem;
+
+    margin-bottom: 15px;
+}
+
+.celebration-icons span {
+    animation: celebrationFloat 1.5s ease-in-out infinite alternate;
+}
+
+.celebration-icons span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.celebration-icons span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes celebrationFloat {
+
+    from {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    to {
+        transform: translateY(-12px) rotate(8deg);
+    }
+
+}
+
+
+/* TÍTULO */
+
+.birthday-eyebrow {
+    color: var(--blue-light);
+}
+
+.birthday-title {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+
+    line-height: 0.85;
+
+    margin: 10px 0 25px;
+
+    text-shadow:
+        0 0 20px rgba(88, 166, 255, 0.5),
+        0 0 50px rgba(25, 118, 255, 0.4);
+}
+
+
+/* NOMBRE */
+
+.birthday-name {
+    padding: 12px 30px;
+
+    margin-bottom: 25px;
+
+    border-radius: 100px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25, 118, 255, 0.30),
+            rgba(103, 183, 255, 0.20)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+
+    box-shadow:
+        0 0 30px rgba(25, 118, 255, 0.25);
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+/* MENSAJE */
+
+.birthday-message {
+    max-width: 550px;
+
+    color: var(--text-soft);
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   EXPLOSIÓN
+========================= */
+
+.reveal-screen.explode {
+
+    animation: screenFlash 0.7s ease;
+}
+
+@keyframes screenFlash {
+
+    0% {
+        background: white;
+    }
+
+    25% {
+        background: #58a6ff;
+    }
+
+    100% {
+        background: #020817;
+    }
+
+}
+
+/* =========================
+   CONFETI
+========================= */
+
+.confetti-container {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 20;
+}
+
+
+.confetti-piece {
+    position: absolute;
+
+    top: -30px;
+
+    width: 10px;
+    height: 18px;
+
+    border-radius: 3px;
+
+    animation-name: confettiFall;
+
+    animation-timing-function: linear;
+
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes confettiFall {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+
+}
+
+/* =========================
+   PASTEL FINAL
+========================= */
+
+.cake-card {
+    max-width: 600px;
+}
+
+.cake-header-icon {
+    font-size: 3.8rem;
+
+    margin-bottom: 15px;
+
+    animation: cakeFloat 2s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* CONTENEDOR */
+
+.cake-wrapper {
+    position: relative;
+
+    width: 330px;
+    height: 300px;
+
+    margin: 30px auto 10px;
+}
+
+
+/* VELAS */
+
+.candles-container {
+    position: absolute;
+
+    top: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    gap: 25px;
+
+    z-index: 5;
+}
+
+.candle {
+    position: relative;
+
+    width: 18px;
+    height: 75px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    transition: transform 0.2s ease;
+}
+
+.candle:hover {
+    transform: translateY(-5px);
+}
+
+
+/* CUERPO DE VELA */
+
+.candle-body {
+    width: 14px;
+    height: 55px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #58a6ff,
+            #ffffff,
+            #1976ff
+        );
+}
+
+
+/* FLAMA */
+
+.flame {
+    width: 18px;
+    height: 28px;
+
+    margin-bottom: -2px;
+
+    border-radius:
+        50% 50% 50% 50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #ffffff 0%,
+            #ffd166 25%,
+            #ff7b00 60%,
+            #ff3d00 100%
+        );
+
+    transform:
+        rotate(45deg);
+
+    animation: flameMove 0.4s ease-in-out infinite alternate;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+
+@keyframes flameMove {
+
+    from {
+        transform:
+            rotate(40deg)
+            scale(1);
+    }
+
+    to {
+        transform:
+            rotate(50deg)
+            scale(1.15);
+    }
+
+}
+
+
+/* VELA APAGADA */
+
+.candle.off .flame {
+
+    opacity: 0;
+
+    transform:
+        rotate(45deg)
+        scale(0);
+
+    animation: none;
+}
+
+.candle.off {
+    cursor: default;
+
+    transform: none;
+}
+
+
+/* PASTEL */
+
+.cake {
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 280px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* PARTE SUPERIOR */
+
+.cake-top {
+    width: 210px;
+    height: 55px;
+
+    border-radius:
+        20px 20px 10px 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #93c5fd
+        );
+
+    border-bottom:
+        8px solid #58a6ff;
+}
+
+
+/* PARTE MEDIA */
+
+.cake-middle {
+    width: 250px;
+    height: 75px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            #60a5fa,
+            #2563eb
+        );
+
+    border-radius: 10px;
+}
+
+
+/* PARTE INFERIOR */
+
+.cake-bottom {
+    width: 280px;
+    height: 65px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d4ed8,
+            #1e3a8a
+        );
+
+    border-radius:
+        10px 10px 25px 25px;
+
+    border-top:
+        7px solid #93c5fd;
+}
+
+
+.blow-instruction {
+    margin-top: 20px;
+
+    color: var(--text-soft);
+
+    font-size: 0.95rem;
+
+    animation: instructionPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes instructionPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+
+    .cake-wrapper {
+        transform: scale(0.85);
+        margin-top: 5px;
+        margin-bottom: -15px;
+    }
+
+}
+
+/* ===================================
+   ÚLTIMA SORPRESA: SOBRE Y CARTA
+=================================== */
+
+/* Pantalla de la carta */
+#letterScreen {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 30px 18px 60px;
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+}
+
+/* Evitar que la carta se comprima */
+#letterScreen .birthday-letter {
+    flex-shrink: 0;
+    margin: 0 auto 30px;
+}
+
+/* Evitar que el sobre se desplace fuera de pantalla */
+#letterScreen .letter-intro {
+    flex-shrink: 0;
+}
+
+.letter-intro {
+    width: 100%;
+    max-width: 520px;
+    margin: auto;
+    text-align: center;
+    animation: letterAppear 0.8s ease both;
+}
+
+.letter-intro h1 {
+    margin: 15px 0;
+}
+
+.envelope-button {
+    display: block;
+    margin: 55px auto 30px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    perspective: 800px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.envelope {
+    position: relative;
+    display: block;
+    width: 240px;
+    height: 155px;
+    filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.35));
+    animation: envelopeFloat 3s ease-in-out infinite;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #1d4ed8;
+    border-radius: 9px;
+}
+
+.envelope-paper {
+    position: absolute;
+    left: 10%;
+    bottom: 8px;
+    width: 80%;
+    height: 115px;
+    border-radius: 5px;
+    background: #f8fafc;
+    transition: transform 1s ease;
+    z-index: 1;
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    background: #60a5fa;
+    clip-path: polygon(0 0, 100% 0, 50% 65%);
+    transform-origin: top;
+    transition: transform 0.7s ease;
+    z-index: 3;
+}
+
+.envelope-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    z-index: 4;
+    transition: opacity 0.3s ease;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #2563eb;
+    clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
+    border-radius: 9px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.envelope-button.opening .envelope {
+    animation: none;
+}
+
+.envelope-button.opening .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope-button.opening .envelope-paper {
+    transform: translateY(-85px);
+}
+
+.envelope-button.opening .envelope-heart {
+    opacity: 0;
+}
+
+.envelope-hint {
+    color: #bfdbfe;
+    font-size: 0.9rem;
+}
+
+/* Carta */
+
+.birthday-letter {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto 45px;
+    padding: clamp(22px, 5vw, 48px);
+    border-radius: 20px;
+    background: #f8fafc;
+    color: #1e293b;
+    text-align: left;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    animation: letterAppear 0.9s ease both;
+}
+
+.birthday-letter[hidden] {
+    display: none;
+}
+
+.birthday-letter h2 {
+    color: #1d4ed8;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: clamp(1.5rem, 5vw, 2.1rem);
+}
+
+.letter-content p {
+    line-height: 1.9;
+    margin-bottom: 19px;
+    font-size: 1rem;
+}
+
+.letter-postscript {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #cbd5e1;
+    color: #2563eb;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+@keyframes envelopeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .envelope {
+        width: 200px;
+        height: 130px;
+    }
+
+    .birthday-letter {
+        margin-top: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .envelope,
+    .letter-intro,
+    .birthday-letter {
+        animation: none;
+    }
+}
+
+.letter-intro[hidden] {
+    display: none;
+}
+
+/* Botón final debajo del pastel */
+#finalSurpriseButton {
+    display: block;
+    margin: 25px auto 0;
+    padding: 15px 25px;
+
+    max-width: 100%;
+    width: fit-content;
+
+    background: linear-gradient(135deg, #2563eb, #60a5fa);
+    color: white;
+
+    border: none;
+    border-radius: 14px;
+
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#finalSurpriseButton:hover {
+    transform: translateY(-3px);
+}
+
+#finalSurpriseButton[hidden] {
+    display: none;
+}
+
+/* =====================================
+   CIELO ESTRELLADO PARA GABI
+===================================== */
+
+#letterScreen {
+    background: radial-gradient(
+        ellipse at 50% 80%,
+        #163e78 0%,
+        #091c43 55%,
+        #040b20 100%
+    );
+
+    isolation: isolate;
+}
+
+#starCanvas {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* El sobre y la carta quedan delante de las estrellas */
+
+#letterScreen .letter-intro,
+#letterScreen .birthday-letter {
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================================
+   CONSTELACIÓN INTERACTIVA DE GABI
+===================================== */
+
+.constellation-intro {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 520px;
+    margin: 65px auto 0;
+    padding: 20px;
+    color: white;
+}
+
+.constellation-label {
+    color: #75baff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.constellation-intro h2 {
+    font-size: clamp(26px, 5vw, 42px);
+    margin: 20px 0 12px;
+}
+
+.constellation-intro p {
+    color: #c7ddff;
+    line-height: 1.7;
+}
+
+#constellationHint {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #93c5fd;
+    animation: hintGlow 2.5s infinite alternate;
+}
+
+@keyframes hintGlow {
+    from { opacity: 0.45; }
+    to { opacity: 1; }
+}
+
+#letterScreen #constellationIntro[hidden],
+#letterScreen #letterIntro[hidden],
+#letterScreen #birthdayLetter[hidden] {
+    display: none;
+}
+
+
+/* =====================================
+   APARICIÓN MÁGICA DEL SOBRE
+===================================== */
+
+#letterIntro {
+    position: relative;
+    z-index: 2;
+}
+
+#letterIntro.magic-appear {
+    animation: magicAppear 1.8s ease-out both;
+}
+
+@keyframes magicAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(45px) scale(0.65);
+        filter: blur(12px);
+    }
+
+    55% {
+        opacity: 1;
+        transform: translateY(-12px) scale(1.06);
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Destello detrás del sobre */
+
+#letterIntro.magic-appear::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(96, 165, 250, 0.35) 0%,
+        rgba(59, 130, 246, 0.12) 40%,
+        transparent 70%
+    );
+    pointer-events: none;
+    z-index: -1;
+    animation: magicGlow 2.5s ease-out both;
+}
+
+@keyframes magicGlow {
+    0% {
+        opacity: 0;
+        scale: 0.4;
+    }
+
+    45% {
+        opacity: 1;
+        scale: 1.3;
+    }
+
+    100% {
+        opacity: 0.5;
+        scale: 1;
+    }
+}
+
+/* Partículas luminosas */
+
+.magic-sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #bfdbfe;
+    box-shadow: 0 0 12px #60a5fa;
+    pointer-events: none;
+    z-index: 3;
+    animation: sparkleFloat 1.8s ease-out forwards;
+}
+
+@keyframes sparkleFloat {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.3);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx), var(--dy)) scale(0);
+    }
+}
+
+/* =====================================
+   CARTA NOCTURNA DE GABI
+===================================== */
+
+#letterScreen .birthday-letter {
+    position: relative;
+    z-index: 2;
+
+    background: linear-gradient(
+        145deg,
+        rgba(16, 38, 77, 0.94),
+        rgba(7, 19, 44, 0.97)
+    );
+
+    color: #e2e8f0;
+
+    border: 1px solid rgba(147, 197, 253, 0.45);
+    border-radius: 22px;
+
+    box-shadow:
+        0 0 35px rgba(59, 130, 246, 0.18),
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        inset 0 0 25px rgba(96, 165, 250, 0.06);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    padding: clamp(24px, 5vw, 45px);
+
+    animation: letterMagicReveal 1.4s ease-out both;
+}
+
+/* Título de la carta */
+
+#letterScreen .birthday-letter h1,
+#letterScreen .birthday-letter h2,
+#letterScreen .birthday-letter h3 {
+    color: #bfdbfe;
+    text-align: center;
+
+    text-shadow: 0 0 18px rgba(96, 165, 250, 0.3);
+}
+
+/* Texto de la carta */
+
+#letterScreen .birthday-letter p {
+    color: #e2e8f0;
+    line-height: 1.9;
+    letter-spacing: 0.2px;
+}
+
+/* Texto resaltado */
+
+#letterScreen .birthday-letter strong {
+    color: #93c5fd;
+}
+
+/* Animación de entrada */
+
+@keyframes letterMagicReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.97);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Ajustes para celulares */
+
+@media (max-width: 600px) {
+    #letterScreen .birthday-letter {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    #letterScreen .birthday-letter p {
+        line-height: 1.8;
+    }
+}
+
+/* Línea luminosa superior */
+
+#letterScreen .birthday-letter::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #93c5fd,
+        #60a5fa,
+        transparent
+    );
+
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+}

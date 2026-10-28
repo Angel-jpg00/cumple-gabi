@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>🔒 Contenido bloqueado</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fuente moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- Fondo decorativo -->
+    <div class="background"></div>
+
+    <!-- Partículas -->
+    <div class="particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="app">
+
+        <div class="confetti-container" id="confettiContainer"></div>
+
+        <!-- PANTALLA 1: LOGIN -->
+        <section class="screen active" id="loginScreen">
+
+            <div class="card">
+
+                <div class="lock">🔒</div>
+
+                <p class="eyebrow">CONTENIDO BLOQUEADO</p>
+
+                <h1>Hay algo aquí para una persona muy específica.</h1>
+
+                <p class="description">
+                    Esto se desbloquea con tu nombre 👀
+                </p>
+
+                <div class="input-group">
+
+                    <input
+                        type="text"
+                        id="nameInput"
+                        placeholder="Escribe tu nombre..."
+                        autocomplete="off"
+                    >
+
+                    <button id="unlockButton">
+                        DESBLOQUEAR 🔓
+                    </button>
+
+                </div>
+
+                <p class="hint">
+                    Pista: empieza con G 😌
+                </p>
+
+                <p class="message" id="loginMessage"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PANTALLA 2: VERIFICACIÓN -->
+        <section class="screen" id="verificationScreen">
+
+            <div class="card verification-card">
+
+                <div class="verify-icon">👀</div>
+
+                <p class="eyebrow">VERIFICANDO IDENTIDAD</p>
+
+                <h1 id="verificationText">
+                    Analizando información...
+                </h1>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+                <p class="progress-text" id="progressText">
+                    0%
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- PANTALLA 3: CONFIRMADO -->
+        <section class="screen" id="confirmedScreen">
+            <div class="card confirmation-card">
+                <div class="success-icon">✓</div>
+                <p class="eyebrow">ACCESO CONCEDIDO</p>
+                <h1>¡Identidad confirmada! 💙</h1>
+                <p class="description">
+                    Sabía que eras tú, Gabi 😌
+                </p>
+
+            </div>
+        </section>
+
+        <!-- PANTALLA 4: ENTONCES SÍ ERES TÚ -->
+    <section class="screen" id="introScreen">
+        <div class="card">
+            <div class="verify-icon">👀</div>
+            <p class="eyebrow">ACCESO COMPLETAMENTE CONFIRMADO</p>
+            <h1>Perfecto...</h1>
+
+            <p class="description">
+                Entonces sí eres tú 👀
+                <br><br>
+                Tengo algo preparado para ti.
+                <br><br>
+                Pero antes...
+                <br>
+                <strong>hay unas pequeñas cosas que debes hacer 😌</strong>
+            </p>
+
+            <button id="instructionsButton">
+            A VER, ¿QUÉ AHORA? 🙄
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- PANTALLA 5: CARGANDO INSTRUCCIONES -->
+    <section class="screen" id="instructionsScreen">
+        <div class="card">
+            <div class="loading-icon">⚙️</div>
+
+            <p class="eyebrow">PREPARANDO ALGO...</p>
+
+            <h1 id="instructionsTitle">
+                Cargando instrucciones...
+            </h1>
+
+            <p class="description" id="instructionsDescription">
+                Por favor espera un momento 😌
+            </p>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="instructionsProgressBar"></div>
+            </div>
+
+            <p class="progress-text" id="instructionsProgressText">
+                0%
+            </p>
+
+            <button
+                id="continueButton"
+                class="hidden-button"
+            >
+                CONTINUAR DE TODOS MODOS 😭
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PANTALLA 6: EL BOTÓN QUE HUYE -->
+    <section class="screen" id="escapeScreen">
+        <div class="card escape-card">
+            <div class="verify-icon">😇</div>
+
+            <p class="eyebrow">PRIMERA PRUEBA</p>
+
+            <h1 id="escapeTitle">
+                Solo tienes que hacer clic en este botón.
+            </h1>
+
+            <p class="description" id="escapeDescription">
+                Fácil, ¿no? 😌
+            </p>
+
+            <div class="escape-area" id="escapeArea">
+
+                <button id="escapeButton">
+                    DA CLICK AQUÍ 😌
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PANTALLA 7: LAS CAJAS -->
+    <section class="screen" id="boxesScreen">
+        <div class="card boxes-card">
+            <div class="boxes-icon">🎁</div>
+
+            <p class="eyebrow">SEGUNDA PRUEBA</p>
+
+            <h1 id="boxesTitle">
+                Bien...
+            </h1>
+
+            <p class="description" id="boxesDescription">
+                Pasaste la primera prueba ja.
+                <br><br>
+                Honestamente, no esperaba menos de ti 😌
+                <br><br>
+                Ahora elige una caja.
+                <br>
+                <strong>Solo una contiene lo que buscas 👀</strong>
+            </p>
+
+            <div class="boxes-container" id="boxesContainer">
+
+                <!-- CAJA 1 -->
+                <button class="gift-box" data-box="1">
+                    <span class="box-lid"></span>
+                    <span class="box-body">🎁</span>
+                    <span class="box-number">1</span>
+                </button>
+
+                <!-- CAJA 2 -->
+                <button class="gift-box" data-box="2">
+                    <span class="box-lid"></span>
+                    <span class="box-body">🎁</span>
+                    <span class="box-number">2</span>
+                </button>
+
+                <!-- CAJA 3 -->
+                <button class="gift-box" data-box="3">
+                    <span class="box-lid"></span>
+                    <span class="box-body">🎁</span>
+                    <span class="box-number">3</span>
+                </button>
+
+            </div>
+
+            <p class="box-message" id="boxMessage"></p>
+
+            <button id="nextBoxButton" class="hidden-button">
+                VER QUÉ HAY DENTRO 👀
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PANTALLA 8: ADVERTENCIA -->
+    <section class="screen" id="warningScreen">
+        <div class="card warning-card">
+            <div class="warning-icon">⚠️</div>
+
+            <p class="eyebrow">ADVERTENCIA IMPORTANTE</p>
+            <h1 id="warningTitle">
+                Estás a punto de descubrir algo...
+            </h1>
+
+            <p class="description" id="warningDescription">
+            Antes de continuar, debes saber 3 cosas:
+            </p>
+
+            <div class="warning-list">
+                <p>🔒 No hay vuelta atrás.</p>
+                <p>👀 Lo que sigue fue preparado especialmente para ti.</p>
+                <p>💙 Alguien tiene una sorpresa esperando por ti.</p>
+            </div>
+
+            <p class="warning-question">
+                ¿Quieres descubrirlo? 👀
+            </p>
+
+            <div class="choice-area" id="choiceArea">
+
+                <button id="noButton">
+                    NO 😨
+                </button>
+
+                <button id="yesButton">
+                    SÍ, CONTINUAR 😌
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PANTALLA 9: GRAN REVELACIÓN -->
+    <section class="screen reveal-screen" id="revealScreen">   
+        <div class="reveal-background"></div>
+        <!-- TEXTO DE SUSPENSO -->
+        <div class="suspense-content" id="suspenseContent">
+            <h1 id="suspenseText"></h1>
+        </div>
+
+        <!-- CONTENIDO FINAL -->
+        <div class="birthday-content" id="birthdayContent">
+
+            <div class="celebration-icons">
+                <span>🎉</span>
+                <span>✨</span>
+                <span>🎊</span>
+            </div>
+
+            <h1 class="birthday-title">
+                ¡FELIZ<br>CUMPLEAÑOS!
+            </h1>
+
+            <div class="birthday-name">
+                GABI 💙
+            </div>
+
+            <p class="birthday-message">
+                Sí... todo esto fue necesario solamente para llegar hasta aquí 😭
+                <br><br>
+                Pero bueno, <strong>¡es tu cumpleaños!</strong> 🎂✨
+            </p>
+
+            <button id="celebrateButton">
+                ¡VAMOS A CELEBRAR! 🎉
+            </button>
+        </div>
+    </section>
+
+    <!-- PANTALLA 10: PASTEL -->
+    <section class="screen" id="cakeScreen">
+        <div class="card cake-card">
+            <div class="cake-header-icon">🎂</div>
+
+            <h1 id="cakeTitle">
+                Pero espera...
+            </h1>
+
+            <p class="description" id="cakeDescription">
+                No puedes terminar una celebración de cumpleaños
+                sin apagar las velas 😌
+            </p>
+
+            <!-- PASTEL -->
+            <div class="cake-wrapper">
+
+                <!-- VELAS -->
+                <div class="candles-container">
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                        <div class="candle-body"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                        <div class="candle-body"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                        <div class="candle-body"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                        <div class="candle-body"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                        <div class="candle-body"></div>
+                    </div>
+
+                </div>
+
+                <!-- PASTEL -->
+                <div class="cake">
+
+                    <div class="cake-top"></div>
+
+                    <div class="cake-middle">
+                        <span>💙</span>
+                    </div>
+
+                    <div class="cake-bottom"></div>
+
+                </div>
+
+            </div>
+
+            <p class="blow-instruction">
+                Toca las velas para apagarlas 🔥
+            </p>
+
+            <button id="finalSurpriseButton" hidden>
+            ESPERA... TODAVÍA HAY ALGO MÁS 👀
+            </button>
+
+        </div>
+
+        
+
+    </section>
+
+    <!-- Pantalla de la última sorpresa -->
+    <section class="screen" id="letterScreen">
+        <!-- Cielo estrellado -->
+        <canvas id="starCanvas" aria-hidden="true"></canvas>
+        <div id="constellationIntro" class="constellation-intro">
+            <span class="constellation-label">UNA ÚLTIMA SORPRESA 💙</span>
+
+            <h2>Hay algo escondido en el cielo... 🌌</h2>
+
+            <p>
+                Busca la constelación que lleva tu inicial
+                y tócala para descubrir lo que guarda. ✨
+            </p>
+
+            <p id="constellationHint">
+                Pista: algunas estrellas tienen algo especial... 👀
+            </p>
+        </div>
+        
+        <div class="letter-intro" id="letterIntro">
+            <span class="eyebrow">UNA ÚLTIMA SORPRESA 💙</span>
+
+            <h1>Espera, Gabi... 👀</h1>
+            <p>Todavía hay algo que quiero mostrarte.</p>
+
+            <button class="envelope-button" id="envelopeButton"
+                    aria-label="Abrir carta de cumpleaños">
+                <span class="envelope">
+                    <span class="envelope-back"></span>
+                    <span class="envelope-paper"></span>
+                    <span class="envelope-flap"></span>
+                    <span class="envelope-heart">💙</span>
+                </span>
+            </button>
+
+            <p class="envelope-hint">Toca el sobre para abrirlo ✨</p>
+        </div>
+
+        <article class="birthday-letter" id="birthdayLetter" hidden>
+            <h2>Para Gabi, en su día especial 💙</h2>
+
+            <div class="letter-content">
+                <p><strong>¡Feliz cumpleaños, Gabi! 🎂✨</strong></p>
+
+                <p>Hoy quería desearte algo más que un simple feliz cumpleaños.</p>
+
+                <p>Hay personas que llegan a nuestra vida de maneras inesperadas, y creo que eso es parte de lo bonito de conocer gente.</p>
+
+                <p>A veces resulta curioso cómo podemos conocer a alguien a través de una pantalla y, aun así, llegar a apreciar su compañía.</p>
+
+                <p>Aunque nuestra amistad comenzó de manera virtual, me alegra mucho que nuestros caminos se hayan cruzado y haber tenido la oportunidad de conocerte.</p>
+
+                <p>Hoy quiero desearte un nuevo año lleno de oportunidades, alegrías, aventuras y momentos que valgan la pena recordar.</p>
+
+                <p>Espero que nunca pierdas la ilusión por las cosas que te gustan, la confianza para perseguir tus sueños y las ganas de descubrir todo lo bueno que todavía está por venir.</p>
+
+                <p>Que nunca te falten motivos para sonreír, personas que te hagan sentir querida y valorada, ni fuerzas para seguir adelante cuando las cosas se pongan difíciles.</p>
+
+                <p>No sé qué cosas bonitas te tenga preparadas la vida, pero espero que sean muchísimas y que puedas disfrutar cada una de ellas.</p>
+
+                <p>Y recuerda que, incluso en los días más normales, siempre puede haber pequeños momentos capaces de hacerlos especiales.</p>
+
+                <p>Quería hacer algo diferente para tu cumpleaños. Algo que, aunque fuera por unos minutos, pudiera sacarte una sonrisa y hacer que este día fuera un poquito más especial.</p>
+
+                <p>Porque no hace falta un regalo enorme para demostrar que alguien es apreciado. A veces basta con dedicar un poco de tiempo a crear algo especialmente para esa persona.</p>
+
+                <p>Y esta página es justamente eso: <strong>un pequeño detalle hecho con mucho aprecio.</strong> 💙</p>
+
+                <p><strong>Que la vida te sorprenda con tantas cosas bonitas como las que hoy te deseo.</strong></p>
+
+                <p>¡Feliz cumpleaños! Espero que este sea el comienzo de un año maravilloso para ti. 🎂✨</p>
+
+                <p><em>Con cariño,</em></p>
+                <p><strong>Angel 💙</strong></p>
+            </div>
+
+            <p class="letter-postscript">
+                P. D. Sí, hice toda una página web para decirte feliz cumpleaños.
+                Un mensaje normal era demasiado sencillo. JEJEJE. 😂💙
+            </p>
+        </article>
+    </section>
+
+
+
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
